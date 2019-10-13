@@ -7,6 +7,7 @@
 包含首页、用户文章列表、登录、注册、个人管理、编辑、发布等功能。
 
 使用 Vue.js 技术栈：vue-cli/vue2/axios/vue-router/vuex/es6/npm
+使用Less编辑样式，使用Grid进行页面布局
 
 
 
