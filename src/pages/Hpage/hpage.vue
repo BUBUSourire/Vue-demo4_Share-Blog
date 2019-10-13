@@ -1,9 +1,10 @@
 <template>
   <div id="hpage">
-    主页
+    <h3>主页</h3>
+    <el-button type="success" @click="onClick1" class="btn1">按钮</el-button>
   </div>
 </template>
 
-<script src="./Hpage.js"></script>
+<script src="./hpage.js"></script>
 
-<style src="./Hpage.css"></style>
+<style src="./hpage.less"></style>
