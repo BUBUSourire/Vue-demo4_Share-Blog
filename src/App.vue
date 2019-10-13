@@ -8,6 +8,7 @@
   </div>
 </template>
 
+
 <script>
 
     import Header from './components/Header';
@@ -26,6 +27,11 @@
 
   @import "./assets/common.less";
 
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
   #app {
     display: grid;
     grid-template-columns: 12% auto 12%;
@@ -38,8 +44,6 @@
     border: 1px solid red;
     background: @bgColor;
     grid-area: header;
-    padding: 0 12%;
-    height: 100%;
   }
   #main {
     border: 1px solid red;
