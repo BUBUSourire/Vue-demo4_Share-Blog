@@ -10,6 +10,14 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 
+  @import "../assets/base.less";
+
+  footer {
+    p {
+      margin: 10px;
+      text-align: center;
+    }
+  }
 </style>

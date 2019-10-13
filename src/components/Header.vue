@@ -13,7 +13,11 @@
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-gangbi"></use>
       </svg>
-      <div class="head-portrait"></div>
+      <div class="head-portrait">
+        <router-link to="/user">
+          <img src="../assets/user.png" alt="">
+        </router-link>
+      </div>
     </template>
   </header>
 </template>
@@ -22,7 +26,7 @@
     export default {
         data() {
             return {
-                isLogin: false
+                isLogin: true
             }
         }
     }
@@ -89,10 +93,15 @@
       right: 12%;
       top: 0;
       margin: 5px 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
   @media (max-width: 768px) {
+
     header.no-login {
       h1 {
         font-size: 20px;
@@ -131,6 +140,11 @@
         right: 15px;
         top: 50%;
         margin-top: -14px;
+
+        img {
+          width: 28px;
+          height: 28px;
+        }
       }
     }
   }

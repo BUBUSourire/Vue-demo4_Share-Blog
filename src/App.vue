@@ -32,6 +32,11 @@
     margin: 0;
   }
 
+  body {
+    background: @textLighterColor;
+    margin: 0 50px;
+  }
+
   #app {
     display: grid;
     grid-template-columns: 12% auto 12%;
@@ -39,23 +44,26 @@
     grid-template-areas: "header header header"
                          ".      main   ."
                          "footer footer footer";
+    width: 100%;
+    background-color: #fff;
   }
   #header {
-    border: 1px solid red;
     background: @bgColor;
     grid-area: header;
   }
   #main {
-    border: 1px solid red;
     grid-area: main;
   }
   #footer {
-    border: 1px solid red;
     grid-area: footer;
     padding: 0 12%;
+    background: rgb(215, 215, 215);
   }
 
   @media (max-width: 768px) {
+    body {
+      margin: 0;
+    }
     #app {
       grid-template-columns: 10px auto 10px;
       #header,#footer {

@@ -10,6 +10,12 @@ html, body, #app {
   height: 100%;
 }
 
+h3 {
+  padding: 0;
+  margin: 0;
+  font-style: normal;
+}
+
 .icon {
   width: 1em; height: 1em;
   vertical-align: -0.15em;
@@ -63,3 +69,29 @@ input:focus {
 .el-input.is-active .el-input__inner, .el-input__inner:focus, .el-textarea__inner:focus {
   border-color: @themeLighterColor;
 }
+
+.head-portrait {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  overflow: hidden;
+
+  img{
+    width: 60px;
+    height: 60px;
+  }
+}
+
+figcaption {
+  font-size: 16px;
+  color: rgb(153, 153, 153);
+}
+
+@media (max-width: 768px) {
+  figcaption {
+    font-size: 12px;
+  }
+}
+
+
