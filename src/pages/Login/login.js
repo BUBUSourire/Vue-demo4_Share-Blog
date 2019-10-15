@@ -1,16 +1,21 @@
-import request from "../../helpers/request.js";
-import auth from "../../api/auth.js";
-import blog from "../../api/blog.js";
-
-window.auth = auth
-window.blog = blog
-window.request = request
+import { mapActions } from 'vuex'
 
 export default {
-  name: "Login",
+  data () {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+
   methods: {
-    onClick1() {
-      this.$message('这是一条消息提示');
+    ...mapActions(['login']),
+
+    onLogin() {
+      this.login({username: this.username, password: this.password})
+        .then(()=>{
+          this.$router.push({path: this.$route.query.redirect || '/'})
+        })
     }
   }
 }
