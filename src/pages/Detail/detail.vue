@@ -2,18 +2,20 @@
   <div id="detail">
     <section class="content">
       <span class="head-portrait">
-        <router-link to="/user">
-          <img src="../../assets/user.png" alt="">
+        <router-link :to="`/user/${user.id}`">
+          <img :src="avatar" :alt="user.username" :title="user.username">
         </router-link>
       </span>
       <div>
-        <h3>前端异步大揭秘</h3>
-        <p><span class="name"><router-link to="/user">BUBU_Sourire</router-link></span>
-          发布于<span>3天前</span></p>
+        <h3>
+          {{title}}
+        </h3>
+        <p><span class="name"><router-link :to="`/user/${user.id}`">{{user.username}}</router-link></span>
+          发布于<span>{{createdAt | formatDate}}</span></p>
       </div>
-      <div class="article">
+    </section>
+    <section class="article" v-html="markdown">
 
-      </div>
     </section>
   </div>
 </template>

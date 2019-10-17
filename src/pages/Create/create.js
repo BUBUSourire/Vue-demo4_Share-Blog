@@ -1,11 +1,23 @@
-import request from "../../helpers/request.js";
-import auth from "../../api/auth.js";
-import blog from "../../api/blog.js";
-
-window.auth = auth
-window.blog = blog
-window.request = request
+import blog from '@/api/blog'
 
 export default {
-  name: "Login"
+  data () {
+    return {
+      title: '',
+      description: '',
+      content: '',
+      atIndex: false
+    }
+  },
+
+  methods: {
+    onCreate() {
+      blog.createBlog({ title: this.title, content: this.content, description: this.description, atIndex: this.atIndex})
+        .then(res => {
+          console.log(res)
+          this.$message.success(res.msg)
+          this.$router.push({ path: `/detail/${res.data.id}` })
+        })
+    }
+  }
 }

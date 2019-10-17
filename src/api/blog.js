@@ -1,4 +1,5 @@
 import request from '@/helpers/request'
+// request(url, type, data)
 
 const URL = {
   GET_LIST: '/blog',
@@ -9,37 +10,31 @@ const URL = {
 }
 
 export default {
-  getBlogs({page = 1, userId, atHpage} = {page: 1}) {
-    return request(URL.GET_LIST, 'GET', {page, userId, atHpage})
+  getBlogs({ page=1, userId, atIndex} = { page: 1}) {
+    return request(URL.GET_LIST, 'GET', { page, userId, atIndex })
   },
 
-  getHpageBlogs({page = 1} = {page: 1}) {
-    return this.getBlogs({page, atHpage: true})
+  getIndexBlogs( {page=1 } = { page: 1}) {
+    return this.getBlogs({ page, atIndex: true})
   },
 
-  getBlogsByUserId(userId, {page = 1, atHpage} = {page: 1}) {
-    return this.getBlogs({userId, page, atHpage})
+  getBlogsByUserId(userId, { page=1, atIndex} = { page: 1}) {
+    return this.getBlogs({ userId, page, atIndex })
   },
 
-  getDetail({blogId}) {
+  getDetail({ blogId }) {
     return request(URL.GET_DETAIL.replace(':blogId', blogId))
   },
 
-  updateBlog({blogId}, {title, content, description, atHpage}) {
-    return request(URL.UPDATE.replace(':blogId', blogId), 'PATCH', {title, content, description, atHpage})
+  updateBlog({ blogId }, { title, content, description, atIndex}) {
+    return request(URL.UPDATE.replace(':blogId', blogId), 'PATCH', {title, content, description, atIndex})
   },
 
-  deleteBlog({blogId}) {
+  deleteBlog({ blogId }) {
     return request(URL.DELETE.replace(':blogId', blogId), 'DELETE')
   },
 
-  createBlog({title = '', content = '', description = '', atHpage = false} = {
-    title: '',
-    content: '',
-    description: '',
-    atHpage: false
-  }) {
-    return request(URL.CREATE, 'POST', {title, content, description, atHpage})
+  createBlog({ title = '', content = '', description = '', atIndex = false} = { title: '', content: '', description: '', atIndex: false}) {
+    return request(URL.CREATE, 'POST', { title, content, description, atIndex })
   }
-
 }

@@ -1,22 +1,38 @@
 <template>
   <header :class="{login:isLogin,'no-login':!isLogin}">
     <template v-if="!isLogin">
-      <h1>LET'S SHARE</h1>
+      <router-link to="/">
+        <h1>LET'S SHARE</h1>
+      </router-link>
       <p>精品博客汇聚</p>
       <div class="buttons">
-        <el-button><router-link to="/login">立即登录</router-link></el-button>
-        <el-button><router-link to="/register">注册账号</router-link></el-button>
+        <el-button>
+          <router-link to="/login">立即登录</router-link>
+        </el-button>
+        <el-button>
+          <router-link to="/register">注册账号</router-link>
+        </el-button>
       </div>
     </template>
     <template v-if="isLogin">
-      <h1>LET'S SHARE</h1>
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-gangbi"></use>
-      </svg>
-      <div class="head-portrait">
-        <router-link to="my">
-          <img :src="user.avatar" :alt="user.username" :title="user.username">
-        </router-link>
+      <router-link to="/">
+        <h1>LET'S SHARE</h1>
+      </router-link>
+      <router-link to="/create">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-gangbi"></use>
+        </svg>
+      </router-link>
+      <div class="bbb">
+        <div class="head-portrait">
+          <router-link to="/my">
+            <img :src="user.avatar" :alt="user.username" :title="user.username">
+          </router-link>
+          <div class="aaa"
+               style="background-color: red; width: 100px; height: 100px; position: absolute; top: 0 ;right: 0; display: none">
+            aaa
+          </div>
+        </div>
       </div>
       <span class="delete-blog" @click="onLogout">注销</span>
     </template>
@@ -51,7 +67,7 @@
                 'checkLogin',
                 'logout'
             ]),
-            onLogout(){
+            onLogout() {
                 this.logout()
             }
         }
@@ -129,13 +145,14 @@
       justify-content: center;
     }
 
-    .delete-blog {
+    .delete-blog, .my {
       display: inline-block;
       height: 20px;
       position: absolute;
       right: 12%;
-      top: 50%;
       color: #ffffff;
+      cursor: pointer;
+      top: 50%;
     }
 
   }

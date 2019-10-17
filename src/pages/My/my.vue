@@ -1,39 +1,40 @@
 <template>
   <div id="my">
-    <section class="content">
-      <figure class="user-head">
-        <span class="head-portrait">
-          <router-link to="/user">
-            <img src="../../assets/user.png" alt="">
+    <section class="my-inner">
+      <div class="head-portrait">
+        <img :src="user.avatar" :alt="user.username">
+      </div>
+      <h3 class="my-name">{{user.username}}</h3>
+    </section>
+    <section class="my-list" v-for="blog in blogs" :key="blog.id">
+      <div class="date">
+        <span class="day">{{splitDate(blog.createdAt).date}}</span>
+        <span class="month">{{splitDate(blog.createdAt).month}}</span>
+        <span class="year">{{splitDate(blog.createdAt).year}}</span>
+      </div>
+      <router-link :to="`/detail/${blog.id}`">
+        <div class="list-content">
+          <h3>{{blog.title}}</h3>
+          <p>{{blog.description}}</p>
+          <router-link :to="`/edit/${blog.id}`">
+            <span>编辑</span>
           </router-link>
-        </span>
-        <figcaption>
-          <router-link to="/user">
-            BUBU_Sourire
-          </router-link>
-        </figcaption>
-      </figure>
-      <figure class="user-blog">
-        <div class="date">
-          <span>13</span>
-          <span>10月</span>
-          <span>2019</span>
+          <span><a href="#" @click.prevent="onDelete(blog.id)">删除</a></span>
         </div>
-        <div class="blog-content">
-          <h3>
-            <router-link to="/detail">
-              前端异步大揭秘
-            </router-link>
-          </h3>
-          <p>本文以一个简单的文件读写为例，讲解了异步的不同写法，包括 普通的 callback、ES2016中的Promise和Generator、 Node 用于解决回调的co
-            模块、ES2017中的async/await。适合初步接触 Node.js以及少量 ES6语法的同学阅读...</p>
-          <p><span>编辑</span><span>删除</span></p>
-        </div>
-      </figure>
+      </router-link>
+    </section>
+    <section>
+      <el-pagination
+        layout="prev, pager, next"
+        :total="total"
+        :current-page="page"
+        @current-change="onPageChange"
+      >
+      </el-pagination>
     </section>
   </div>
 </template>
 
 <script src="./my.js"></script>
 
-<style src="./my.less" scoped lang="less"></style>
+<style scoped lang="less" src="./my.less"></style>
