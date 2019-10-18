@@ -1,5 +1,6 @@
 <template>
   <header :class="{login:isLogin,'no-login':!isLogin}">
+
     <template v-if="!isLogin">
       <router-link to="/">
         <h1>LET'S SHARE</h1>
@@ -14,6 +15,7 @@
         </el-button>
       </div>
     </template>
+
     <template v-if="isLogin">
       <router-link to="/">
         <h1>LET'S SHARE</h1>
@@ -23,16 +25,10 @@
           <use xlink:href="#icon-gangbi"></use>
         </svg>
       </router-link>
-      <div class="bbb">
-        <div class="head-portrait">
-          <router-link to="/my">
-            <img :src="user.avatar" :alt="user.username" :title="user.username">
-          </router-link>
-          <div class="aaa"
-               style="background-color: red; width: 100px; height: 100px; position: absolute; top: 0 ;right: 0; display: none">
-            aaa
-          </div>
-        </div>
+      <div class="head-portrait">
+        <router-link to="/my">
+          <img :src="user.avatar" :alt="user.username" :title="user.username">
+        </router-link>
       </div>
       <span class="delete-blog" @click="onLogout">注销</span>
     </template>
@@ -123,10 +119,10 @@
 
     .icon {
       position: absolute;
-      right: 22%;
+      right: 20%;
       top: 0;
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
       color: #ffffff;
       padding: 15px 0;
     }
@@ -137,7 +133,7 @@
       border-radius: 100%;
       border: 1px solid #ffffff;
       position: absolute;
-      right: 16%;
+      right: 15%;
       top: 0;
       margin: 5px 0;
       display: flex;
@@ -152,7 +148,7 @@
       right: 12%;
       color: #ffffff;
       cursor: pointer;
-      top: 50%;
+      top: 30%;
     }
 
   }
@@ -182,11 +178,11 @@
 
       .icon {
         position: absolute;
-        right: 60px;
+        right: 110px;
         top: 50%;
         margin-top: -25px;
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         color: #ffffff;
       }
 
@@ -196,7 +192,7 @@
         border-radius: 100%;
         border: 1px solid #ffffff;
         position: absolute;
-        right: 15px;
+        right: 10%;
         top: 50%;
         margin-top: -14px;
 
@@ -205,6 +201,43 @@
           height: 28px;
         }
       }
+
+      .delete-blog {
+        margin-right: -50px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  @media (min-width: 375px) and (max-width: 426px) {
+    header.login {
+      .icon {
+        margin-right: 5px;
+      }
+
+      .head-portrait {
+        margin-right: 7%;
+      }
+
+      .delete-blog {
+        margin-right: -5%;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  @media (max-width: 374px) {
+    .icon {
+      margin-right: 5%;
+    }
+
+    .delete-blog {
+      margin-right: 0 !important;
+      margin-top: 5px;
+    }
+
+    .head-portrait {
+      margin-right: 12% !important;
     }
   }
 

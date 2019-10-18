@@ -67,6 +67,7 @@
   #main {
     grid-area: main;
     height: 100%;
+    background-color: #fff;
   }
 
   #footer {
@@ -91,8 +92,25 @@
     #app {
       grid-template-columns: 10px auto 10px;
       #header, #footer {
-        padding: 0 10px;
+        padding:10px 0;
       }
     }
   }
+
+  @media (min-width: 375px) and (max-width: 425px){
+    body {
+      margin: 0;
+      background-color: #fff;
+    }
+    #app {
+      grid-template-columns: 10px auto 10px;
+      #header, #footer {
+        padding:10px 0;
+      }
+      #main {
+        padding: 30px 0;
+      }
+    }
+  }
+
 </style>
