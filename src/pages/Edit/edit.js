@@ -30,6 +30,5 @@ export default {
           this.$router.push({ path: `/detail/${res.data.id}` })
         })
     }
-
   }
 }
