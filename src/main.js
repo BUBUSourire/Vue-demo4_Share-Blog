@@ -5,18 +5,17 @@ import App from './App';
 import router from './router';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import store from './store/store.js'
-import Until from './helpers/until.js'
-import filter from './helpers/filter.js'
+import store from "./store";
+import Until from "./helper/until"
 
 Vue.use (Until)
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  render: h => h(App),
   router,
   store,
   components: { App },

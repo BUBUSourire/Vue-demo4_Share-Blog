@@ -1,5 +1,4 @@
-import request from '@/helpers/request'
-// request(url, type, data)
+import request from "../helper/custom-axios";
 
 const URL = {
   GET_LIST: '/blog',

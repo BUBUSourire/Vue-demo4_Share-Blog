@@ -1,115 +1,105 @@
 <template>
   <div id="app">
     <Header id="header">header</Header>
-    <sliderbar class="item1"></sliderbar>
     <main id="main">
       <router-view/>
     </main>
-    <sliderbar class="item1"></sliderbar>
     <Footer id="footer">footer</Footer>
   </div>
 </template>
 
 <script>
 
-    import Header from './components/Header';
-    import Footer from "./components/Footer";
-    import sliderbar from "./components/sliderbar";
+    import Header from './components/header';
+    import Footer from './components/footer';
 
     export default {
         name: 'App',
         components: {
             Header,
-            Footer,
-            sliderbar
-
+            Footer
         }
     }
 </script>
 
-<style lang="less">
+<style lang="scss">
 
-  @import "./assets/common.less";
+  @import "assets/base.scss";
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
 
   * {
     padding: 0;
     margin: 0;
   }
 
-  body {
-    background: @textLighterColor;
-    margin: 0 50px;
+  html {
+    background: #ccc;
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 12% auto 12%;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-    "header header header"
-    ". main ."
-    "footer footer footer";
-    width: 100%;
-    background-color: #fff;
-  }
-
-  .item1 {
-    background-color: #fff;
-    grid-row: 1 / 4;
-    grid-column: 1 / 2;
-  }
-
-  #header {
-    background: @bgColor;
-    grid-area: header;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
   }
 
   #main {
-    grid-area: main;
+    margin: 0 12%;
+    background: #fff;
     height: 100%;
-    background-color: #fff;
+    flex: 1;
+    padding: 20px 5%;
   }
 
   #footer {
-    grid-area: footer;
-    padding: 0 12%;
-    background: rgb(215, 215, 215);
+    width: 100%;
   }
 
-  .el-pager li:hover {
-    color: #149739;
+  .el-input__inner:focus {
+    border-color: $background-color;
+    outline: none;
+  }
+  .el-textarea__inner {
+    resize: none;
+  }
+  .el-textarea__inner:focus {
+    border-color: $background-color;
+    outline: none;
+    resize: none;
+  }
+  .el-button:focus, .el-button:hover {
+    color: $font-color;
+    border-color: $background-color;
+    background-color: $footer-background-color;
   }
 
-  .el-pager li.active {
-    color: #149739;
+
+  .el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: $background-color;
   }
 
-  @media (max-width: 768px) {
-    body {
+  .el-pagination.is-background .el-pager li:not(.disabled):hover {
+    color: #bbb;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  @media (max-width: 765px) {
+    #main {
       margin: 0;
-    }
-
-    #app {
-      grid-template-columns: 10px auto 10px;
-      #header, #footer {
-        padding:10px 0;
-      }
-    }
-  }
-
-  @media (min-width: 375px) and (max-width: 425px){
-    body {
-      margin: 0;
-      background-color: #fff;
-    }
-    #app {
-      grid-template-columns: 10px auto 10px;
-      #header, #footer {
-        padding:10px 0;
-      }
-      #main {
-        padding: 30px 0;
-      }
     }
   }
 

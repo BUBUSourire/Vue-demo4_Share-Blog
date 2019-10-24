@@ -1,112 +1,65 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import create from "../pages/Create/create.vue"
-// import detail from "../pages/Detail/detail.vue"
-// import edit from "../pages/Edit/edit.vue"
-// import hpage from "../pages/Hpage/hpage.vue"
-// import login from "../pages/Login/login.vue"
-// import my from "../pages/My/my.vue"
-// import register from "../pages/Register/register.vue"
-// import user from "../pages/User/user.vue";
-import store from "../store/store";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
+import User from "../Pages/User";
+import Edit from "../Pages/Edit";
+import Create from "../Pages/Create";
+import My from "../Pages/My";
+import Detail from "../Pages/Detail";
+import Index from "../Pages/Index";
 
+import store from "../store";
 
 Vue.use(Router)
 
-/*const router = new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'hpage',
-      component: hpage
+      name: 'Index',
+      component: () => import('../Pages/Index.vue')
     },
     {
       path: '/login',
-      name: 'login',
-      component: login
+      name: 'Login',
+      component: () => import('../Pages/Login.vue')
     },
     {
       path: '/register',
-      name: 'register',
-      component: register
+      name: 'Register',
+      component: () => import('../Pages/Register.vue')
     },
     {
       path: '/create',
-      name: 'create',
-      component: create,
+      name: 'Create',
+      component: () => import('../Pages/Create.vue'),
+      meta: {requiresAuth: true} //路由元信息，只有登录状态是true才能进入此路由
+    },
+    {
+      path: '/my',
+      name: 'My',
+      component: () => import('../Pages/My.vue'),
       meta: {requiresAuth: true}
     },
     {
       path: '/detail/:blogId',
-      name: 'detail',
-      component: detail,
-      meta: {requiresAuth: true}
-    },
-    {
-      path: '/edit/:blogId',
-      name: 'edit',
-      component: edit,
-      meta: {requiresAuth: true}
-    },
-    {
-      path: '/my',
-      name: 'my',
-      component: my,
-      meta: {requiresAuth: true}
+      name: 'Detail',
+      component: () => import('../Pages/Detail.vue'),
     },
     {
       path: '/user/:userId',
-      name: 'user',
-      component: user
-    },
-  ]
-})
-
- */
-
-const router =  new Router({
-  routes: [
-    {
-      path: '/',
-      component: () => import('@/pages/Hpage/hpage.vue')
-    },
-    {
-      path: '/login',
-      component: () => import('@/pages/login/login.vue')
-    },
-    {
-      path: '/detail/:blogId',
-      component: () => import('@/pages/detail/detail.vue')
+      name: 'User',
+      component: () => import('../Pages/User.vue'),
     },
     {
       path: '/edit/:blogId',
-      component: () => import('@/pages/edit/edit.vue'),
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/create',
-      component: () => import('@/pages/create/create.vue'),
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/user/:userId',
-      component: () => import('@/pages/user/user.vue')
-    },
-    {
-      path: '/my',
-      component: () => import('@/pages/my/my.vue'),
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/register',
-      component: () => import('@/pages/register/register.vue')
+      name: 'Edit',
+      component: () => import('../Pages/Edit.vue'),
+      meta: {requiresAuth: true}
     }
   ]
 })
-
-//meta：需要是登录状态的路由添加meta属性
-
-//路由元信息：判断用户是否处于登录状态，符合含有meta属性的则给一个登录状态
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {

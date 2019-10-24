@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>© 2018 wechat</p>
+    <p> © 2018 wechat</p>
   </footer>
 </template>
 
@@ -10,14 +10,14 @@
     }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 
-  @import "../assets/base.less";
+  @import "../assets/base";
 
-  footer {
-    p {
-      margin: 10px;
-      text-align: center;
-    }
+  p {
+    padding: 10px 0;
+    background-color: #eee;
+    text-align: center;
+    font-size: 12px;
   }
 </style>
