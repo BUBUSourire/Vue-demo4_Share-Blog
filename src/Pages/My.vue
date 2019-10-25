@@ -155,4 +155,15 @@
     }
   }
 
+  @media (max-width: 430px) {
+    #my {
+      h3 {
+        font-size: 16px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+
 </style>

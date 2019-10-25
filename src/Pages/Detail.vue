@@ -90,4 +90,18 @@
       padding: 20px 0;
     }
   }
+
+  @media (max-width: 430px) {
+    #detail {
+      h1 {
+        font-size: 20px;
+      }
+      h3 {
+        font-size: 16px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+  }
 </style>

@@ -5,7 +5,7 @@
       <h3>文章标题</h3>
       <el-input v-model="title" placeholder="请输入不超过15个字" maxlength="15"></el-input>
       <h3>内容简介</h3>
-      <el-input type="textarea" v-model="description" :autosize="{ minRows: 6, maxRows: 6}"></el-input>
+      <el-input type="textarea" v-model="description" :autosize="{ minRows: 6, maxRows: 6}" placeholder="请输入不超过30个字" maxlength="30"></el-input>
       <h3>文章内容</h3>
         <el-input type="textarea" v-model="content" :autosize="{ minRows: 7, maxRows: 7}"></el-input>
       <p>
@@ -55,6 +55,18 @@
   .el-button {
     margin: 10px 0;
     padding: 10px 20px;
+  }
+
+  @media (max-width: 426px){
+    h1 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 14px;
+    }
   }
 
 </style>

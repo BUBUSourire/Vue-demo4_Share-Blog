@@ -21,8 +21,9 @@
           </svg>
         </router-link>
         <div class="user">
-          <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" @click="showDetail">
-          <ul v-if="isShow">
+          <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username"
+               v-clickoutside="handleClose" @click="showDetail">
+          <ul v-show="show">
             <router-link to="/my">
               <li>
                 我 的
@@ -38,10 +39,28 @@
 
 <script>
 
-    // //测试
-    // import auth from '../api/auth'
-    // window.auth = auth
-    // //测试
+    //点击空白处弹框消失
+    const clickoutside = {
+        bind(el, binding, vnode) {
+            function documentHandler(e) {
+                if (el.contains(e.target)) {
+                    return false;
+                }
+                if (binding.expression) {
+                    binding.value(e);
+                }
+            }
+            el.__vueClickOutside__ = documentHandler;
+            document.addEventListener('click', documentHandler);
+        },
+        update() {},
+        unbind(el, binding) {
+            // 解除事件监听
+            document.removeEventListener('click', el.__vueClickOutside__);
+            delete el.__vueClickOutside__;
+        },
+    };
+
 
     import {mapGetters, mapActions} from 'vuex';
 
@@ -49,7 +68,7 @@
         name: "Header",
         data() {
             return {
-                isShow: ''
+                show: false
             }
         },
         computed: {
@@ -62,13 +81,17 @@
             this.checkLogin()
             this.isShow = false
         },
+        directives: {clickoutside},
         methods: {
             ...mapActions([
                 'checkLogin',
                 'logout'
             ]),
-            showDetail() {
-                this.isShow = !this.isShow
+            handleClose(e){
+                this.show = false;
+            },
+            showDetail(){
+                this.show = !this.show
             },
             onLogout() {
                 this.logout()

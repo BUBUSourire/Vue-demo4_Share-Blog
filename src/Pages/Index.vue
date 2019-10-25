@@ -89,12 +89,6 @@
       width: 100%;
       display: flex;
 
-      .blog-content {
-        h4 {
-          padding-bottom: 10px;
-        }
-      }
-
       .index-user-content {
         display: flex;
         flex-direction: column;
@@ -103,6 +97,10 @@
         span {
           margin-top: 5px;
           font-size: 12px;
+          max-width: 5em;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis
         }
 
         .avatar {
@@ -128,9 +126,34 @@
         }
       }
 
+      .blog-content {
+        h4 {
+          padding-bottom: 10px;
+          max-width: 8em;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        p {
+          font-size: 14px;
+          margin-top: 10px;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          display:-webkit-box;
+          -webkit-box-orient:vertical;
+          -webkit-line-clamp:2;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 769px) {
+    #index {
       p {
-        font-size: 14px;
-        margin-top: 10px;
+        max-width: 350px;
+      }
+      h4 {
+        max-width: 350px;
       }
     }
   }
@@ -152,6 +175,47 @@
 
           p {
             font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 426px) {
+    #index {
+      .index-content {
+        h4 {
+          font-size: 16px;
+        }
+
+        .index-blog{
+          p {
+            width: 200px;
+          }
+          h4 {
+            width: 200px;
+          }
+          .time-content {
+            span {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 376px){
+    #index {
+      .index-content {
+        h4 {
+          font-size: 14px;
+
+        }
+
+        .index-blog{
+          .blog-content {
+            width: 100px;
           }
         }
       }

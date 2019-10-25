@@ -81,6 +81,19 @@
         color: #8b56fc;
       }
     }
+  }
 
+  @media (max-width: 770px) {
+    #register {
+      padding-top: 0;
+    }
+  }
+
+  @media (max-width: 380px) {
+    #register {
+      .el-input {
+        width: 250px;
+      }
+    }
   }
 </style>

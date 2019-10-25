@@ -54,6 +54,7 @@
     .el-input {
       width: 350px;
       padding: 10px 0;
+      text-align: center;
     }
 
     .error {
@@ -83,6 +84,17 @@
 
   }
 
+  @media (max-width: 770px) {
+    #login {
+      padding-top: 0;
+    }
+  }
 
-
+  @media (max-width: 430px) {
+    #login {
+      .el-input {
+        width: 250px;
+      }
+    }
+  }
 </style>

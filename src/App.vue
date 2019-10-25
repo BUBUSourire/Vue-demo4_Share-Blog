@@ -76,4 +76,10 @@
     }
   }
 
+  @media (max-width: 426px) {
+    #main {
+      padding: 10px 10%;
+    }
+  }
+
 </style>
