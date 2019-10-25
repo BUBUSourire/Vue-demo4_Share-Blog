@@ -4,7 +4,11 @@
       <img :src="user.avatar" :alt="user.username" class="avatar">
       <figure>
         <h3>{{title}}</h3>
-        <span>发布于
+        <span>
+          <router-link :to="`/user/${user.id}`">
+            <i>{{user.username}}</i>
+          </router-link>
+          发布于
           <i>{{friendlyDate(createdAt)}}</i>
         </span>
       </figure>

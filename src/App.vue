@@ -65,33 +65,6 @@
     width: 100%;
   }
 
-  .el-input__inner:focus {
-    border-color: $background-color;
-    outline: none;
-  }
-  .el-textarea__inner {
-    resize: none;
-  }
-  .el-textarea__inner:focus {
-    border-color: $background-color;
-    outline: none;
-    resize: none;
-  }
-  .el-button:focus, .el-button:hover {
-    color: $font-color;
-    border-color: $background-color;
-    background-color: $footer-background-color;
-  }
-
-
-  .el-pagination.is-background .el-pager li:not(.disabled).active {
-    background-color: $background-color;
-  }
-
-  .el-pagination.is-background .el-pager li:not(.disabled):hover {
-    color: #bbb;
-  }
-
   a {
     color: black;
     text-decoration: none;

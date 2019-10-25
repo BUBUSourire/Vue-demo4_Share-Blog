@@ -79,6 +79,10 @@
       text-align: center;
     }
 
+    .mobile-pagination {
+      display: none;
+    }
+
 
     .index-content {
       padding: 10px 0;

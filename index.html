@@ -1,13 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>blog-client</title>
-    <script src="https://at.alicdn.com/t/font_1471628_oo4ed7oxrxl.js"></script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>blog-client</title>
+  <script src="https://at.alicdn.com/t/font_1471628_oo4ed7oxrxl.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
+<style>
+
+  .el-input__inner:focus {
+    border-color: #9479fc;
+    outline: none;
+  }
+
+  .el-textarea__inner {
+    resize: none;
+  }
+
+  .el-textarea__inner:focus {
+    border-color: #9479fc;
+    outline: none;
+    resize: none;
+  }
+
+  .el-button:focus, .el-button:hover {
+    color: #8b56fc;
+    border-color: #9479fc;
+    background-color: #e6e9fc;
+  }
+
+
+  .el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: #9479fc;
+  }
+
+  .el-pagination.is-background .el-pager li:not(.disabled):hover {
+    color: #bbb;
+  }
+
+  @media (max-width: 765px) {
+    .el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li {
+      min-width: 20px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li {
+      margin: 0 2px;
+    }
+  }
+
+</style>
 </html>
